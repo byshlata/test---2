@@ -1,60 +1,90 @@
-function doneOrNot(board){
-  let sumRows = 0;
-  let sumColumns = 0;
-  for (let i = 0; i < 9; i++){
-    for (let k = 0; k < 9; k++){
-      sumRows += board[i][k];
+function gap(g, m, n) {
+    let arrayPrimeNuber = [];
+    let indexNumber;
+
+
+let t = 0;
+
+    if (n <= 500000){
+
+    if ( (m % 2 == 0) && (m != 2)){
+      t = m + 1;  
+    } else {
+        t = m;
+    }        
+        while (t <= n ){
+{
+    if (t % 3 != 0){
+        if ((number (t) != false) && (number (t+g) != false)){
+         indexNumber = 0;
+        for (let k = number (t) + 1; k < (number (t) + g); k++){
+            if ( number (k) != false){
+                indexNumber = 1;
+                break;
+            }
+        }
+        if (indexNumber != 1){
+         arrayPrimeNuber.push(t, t+g);
+         return arrayPrimeNuber;    
+        }
     }
-    if (sumRows != 45){
-      return 'Try again!';
+           
+    } 
+     t +=2;  
+}
     }
-    sumRows = 0;
-  }
-
-  for (let i = 0; i < 9; i++){
-    for (let k = 0; k < 9; k++){
-      sumColumns += board[k][i];
     }
-    if (sumColumns != 45){
-      return false;
+  
+    if (n >= 500000){
+        
+        if ( (n % 2 == 0) && (n != 2)){
+          t = n - 1;  
+        } else {
+            t = n;
+        }      
+            while (t >= m ){
+    {
+        if (t % 3 != 0){
+            if ((number (t) != false) && (number (t-g) != false)){
+             indexNumber = 0;
+             console.log (number (t-g));
+             console.log (number (t)-1);
+            for (let k = number (t-g); k < number (t+1); k++){
+                if ( number (k) != false){
+                    indexNumber = 1;
+                    break;
+                }
+            }
+            if (indexNumber != 1){
+             arrayPrimeNuber.push(t, t-g);
+             return arrayPrimeNuber;    
+            }
+        }
+               
+        } 
+         t -=2;  
     }
-    sumColumns = 0;
-  }
-
-
-  if ((sumRegion(0, 0, board) == false) || (sumRegion(3, 0, board) == false) || (sumRegion(6, 0, board) == false) || (sumRegion(0, 3, board) == false) || (sumRegion(3, 3, board) == false) || (sumRegion(6, 3, board) == false) || (sumRegion(0, 6, board) == false) || (sumRegion(3, 6, board) == false) || (sumRegion(6, 6, board) == false)){
-    return false;
-  }
-
-
- return true;
+        }
+        }
+   
+       
+    return null; 
 }
 
 
-function sumRegion(i, k, array){
-  let sum = 0;
-  let row = i + 3;
-  let col = k + 3;
-  for (i; i < row; i++){
-    for (k; k < col; k++){
-      sum += array [i][k];
-    }
-    k = k -3;
-  }
-  if (sum != 45){
-    return false;
-  }
-  else {
-    return true;
-  }
-}
-    console.log (doneOrNot([[ 5, 3, 4, 6, 7, 8, 9, 1, 2 ],
-                            [ 6, 7, 2, 1, 9, 5, 3, 4, 8 ],
-                            [ 1, 9, 8, 3, 4, 2, 5, 6, 7 ],
-                            [ 8, 5, 9, 7, 6, 1, 4, 2, 3 ],
-                            [ 4, 2, 6, 8, 5, 3, 7, 9, 1 ],
-                            [ 7, 1, 3, 9, 2, 4, 8, 5, 6 ],
-                            [ 9, 6, 1, 5, 3, 7, 2, 8, 4 ],
-                            [ 2, 8, 7, 4, 1, 9, 6, 3, 5 ],
-                            [ 3, 4, 5, 2, 8, 6, 1, 7, 9 ] ]));
 
+function number (x) {
+    if (x % 5 == 0){
+        return false;
+    }
+    for (let k = 2; k < x; k++){
+        if (x % k == 0){
+           return false;
+            }
+        }
+        return x;
+}
+
+    console.log (gap(2,1000037,1000039));
+
+/*     1000037, 1000039 */
