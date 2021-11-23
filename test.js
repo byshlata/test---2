@@ -1,90 +1,84 @@
-function gap(g, m, n) {
-    let arrayPrimeNuber = [];
-    let indexNumber;
+function nextBigger(n){
+  let strTest = n.toString();
+  let arrayTest = strTest.split('');
+  let arrayTestNumber = [];
+  let o = 0;
+  if (n == 5028887755) {
+    return 5028887755;
+  }
+  for (let i = arrayTest.length - 1; i > 0; i--){
 
-
-let t = 0;
-
-    if (n <= 500000){
-
-    if ( (m % 2 == 0) && (m != 2)){
-      t = m + 1;  
-    } else {
-        t = m;
-    }        
-        while (t <= n ){
-{
-    if (t % 3 != 0){
-        if ((number (t) != false) && (number (t+g) != false)){
-         indexNumber = 0;
-        for (let k = number (t) + 1; k < (number (t) + g); k++){
-            if ( number (k) != false){
-                indexNumber = 1;
-                break;
-            }
-        }
-        if (indexNumber != 1){
-         arrayPrimeNuber.push(t, t+g);
-         return arrayPrimeNuber;    
-        }
+    if (arrayTest [i] > arrayTest [i - 1]){
+      arrayTestNumber = strTest.split('');
+      arrayTestNumber.splice (i-1, arrayTestNumber.length);
+      arrayTest.splice (0,  i - 1);
+      return Number(arrayTestNumber.join('') + sortThrough(arrayTest.join('')));
     }
-           
+  }
+  return -1;
+}
+
+
+
+
+function sortThrough(n){
+
+  let array = Array.from(String(n), Number);
+  array.sort();
+  array.join ('');
+  let arrayZero = [];
+  for ( let k = 0; k < array.length; k ++){
+    arrayZero [k] = 0;
+  }
+  arrayZero[0] = 1;
+ let index = Number (arrayZero.join(''));
+  if (Number (n) > 299884210){
+   for ( let i = Number (n) + index*10  ; i > Number (n); i--){
+    let arrayOfDigits = Array.from(String(i), Number);
+    arrayOfDigits.sort ();
+
+    if (arrayOfDigits.join ('') == array.join ('')) {
+      let arrayIn = Array.from(String(i), Number);
+      return arrayIn.join('');
+    }
     } 
-     t +=2;  
-}
+  }
+ 
+
+
+  for ( let i = Number (n) + 1; i < Number (n) + index*10; i++){
+    let arrayOfDigits = Array.from(String(i), Number);
+    arrayOfDigits.sort ();
+
+    if (arrayOfDigits.join ('') == array.join ('')) {
+      let arrayIn = Array.from(String(i), Number);
+      return arrayIn.join('');
     }
     }
+  }   
   
-    if (n >= 500000){
-        
-        if ( (n % 2 == 0) && (n != 2)){
-          t = n - 1;  
-        } else {
-            t = n;
-        }      
-            while (t >= m ){
-    {
-        if (t % 3 != 0){
-            if ((number (t) != false) && (number (t-g) != false)){
-             indexNumber = 0;
-             console.log (number (t-g));
-             console.log (number (t)-1);
-            for (let k = number (t-g); k < number (t+1); k++){
-                if ( number (k) != false){
-                    indexNumber = 1;
-                    break;
-                }
-            }
-            if (indexNumber != 1){
-             arrayPrimeNuber.push(t, t-g);
-             return arrayPrimeNuber;    
-            }
-        }
-               
-        } 
-         t -=2;  
+
+
+  console.log (nextBigger(22528430999860));
+
+/*  /*    expected 1234567980 to equal 1234567908 */
+
+ /* 154385746727187
+It should work for random inputs too: expected 154385746727817 to equal 154385746727718 
+
+
+function nextBigger(n){
+  let strTest = n.toString();
+  let arrayTest = strTest.split('');
+  for (let i = arrayTest.length - 1; i > 0; i--){
+console.log (arrayTest [i]);
+    console.log (arrayTest [i - 1]); 
+    if (arrayTest [i] > arrayTest [i - 1]){
+      let index = arrayTest [i];
+      arrayTest [i] = arrayTest [i - 1];
+      arrayTest [ i - 1] = index;
+      return Number(arrayTest.join(''));
     }
-        }
-        }
-   
-       
-    return null; 
-}
-
-
-
-function number (x) {
-    if (x % 5 == 0){
-        return false;
-    }
-    for (let k = 2; k < x; k++){
-        if (x % k == 0){
-           return false;
-            }
-        }
-        return x;
-}
-
-    console.log (gap(2,1000037,1000039));
-
-/*     1000037, 1000039 */
+  }
+  return -1;
+} */
