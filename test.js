@@ -1,65 +1,22 @@
-function nextBigger(n){
-  let strTest = n.toString();
-  let arrayTest = strTest.split('');
-  let arrayTestNumber = [];
-  let o = 0;
-  if (n == 5028887755) {
-    return 5028887755;
+function domainName(url){
+let httpTest = /http/i;
+let wwwTest = /www./i;
+  if (httpTest.test(url) == true && wwwTest.test(url) == true ){
+   let arrayDomainNameOff = url.split('//');
+   let domainNameOff = arrayDomainNameOff[1].split(".");
+   return domainNameOff[1];
+  } else  if (httpTest.test(url) == true){
+   let arrayDomainNameOff = url.split('//');
+   let domainNameOff = arrayDomainNameOff[1].split(".");
+   return domainNameOff[0];
+  } else {
+   let arrayDomainNameOff = url.split('.');
+   return arrayDomainNameOff[1];
   }
-  for (let i = arrayTest.length - 1; i > 0; i--){
 
-    if (arrayTest [i] > arrayTest [i - 1]){
-      arrayTestNumber = strTest.split('');
-      arrayTestNumber.splice (i-1, arrayTestNumber.length);
-      arrayTest.splice (0,  i - 1);
-      return Number(arrayTestNumber.join('') + sortThrough(arrayTest.join('')));
-    }
-  }
-  return -1;
 }
 
-
-
-
-function sortThrough(n){
-
-  let array = Array.from(String(n), Number);
-  array.sort();
-  array.join ('');
-  let arrayZero = [];
-  for ( let k = 0; k < array.length; k ++){
-    arrayZero [k] = 0;
-  }
-  arrayZero[0] = 1;
- let index = Number (arrayZero.join(''));
-  if (Number (n) > 299884210){
-   for ( let i = Number (n) + index*10  ; i > Number (n); i--){
-    let arrayOfDigits = Array.from(String(i), Number);
-    arrayOfDigits.sort ();
-
-    if (arrayOfDigits.join ('') == array.join ('')) {
-      let arrayIn = Array.from(String(i), Number);
-      return arrayIn.join('');
-    }
-    } 
-  }
- 
-
-
-  for ( let i = Number (n) + 1; i < Number (n) + index*10; i++){
-    let arrayOfDigits = Array.from(String(i), Number);
-    arrayOfDigits.sort ();
-
-    if (arrayOfDigits.join ('') == array.join ('')) {
-      let arrayIn = Array.from(String(i), Number);
-      return arrayIn.join('');
-    }
-    }
-  }   
-  
-
-
-  console.log (nextBigger(22528430999860));
+  console.log (domainName("http://google.co.jp"));
 
 /*  /*    expected 1234567980 to equal 1234567908 */
 
