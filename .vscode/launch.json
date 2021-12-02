@@ -1,38 +1,17 @@
 {
     "configurations": [
-        
-        {
-            "args": [
-                "task"
-            ],
-            "name": "Gulp task",
-            "program": "${workspaceFolder}/node_modules/gulp/bin/gulp.js",
-            "request": "launch",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "type": "pwa-node"
-        },
+ 
+
     {
-        "args": [
-            "task"
-        ],
-        "name": "Gulp task",
-        "program": "${workspaceFolder}/node_modules/gulp/bin/gulp.js",
+        "type": "pwa-node",
         "request": "launch",
+        "name": "Launch Program",
         "skipFiles": [
             "<node_internals>/**"
         ],
-        "type": "pwa-node"
-    },
-    {
-        "name": "Attach",
-        "port": 9229,
-        "request": "attach",
-        "skipFiles": [
-            "<node_internals>/**"
-        ],
-        "type": "pwa-node"
+        "program": "${workspaceFolder}\\test.js"
     }
     ]
+
+    
 }
